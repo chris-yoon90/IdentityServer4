@@ -180,7 +180,7 @@ namespace IdentityServer4.Endpoints
                 if (token.ClientId == client.ClientId)
                 {
                     _logger.LogDebug("Refresh token revoked");
-                    await _refreshTokenStore.RemoveRefreshTokensAsync(token.SubjectId, token.ClientId);
+                    await _refreshTokenStore.RemoveRefreshTokenAsync(token.SubjectId);
                     await _referenceTokenStore.RemoveReferenceTokensAsync(token.SubjectId, token.ClientId);
                 }
                 else
